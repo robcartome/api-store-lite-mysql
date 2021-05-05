@@ -10,26 +10,35 @@ ferreteria = Category.create({
    name: "Ferreteria",
 })
 
-ferreteria.products.create(
-  name: "Martillo TRAMONTINA"
-)
-
-ferreteria.products.create(
-  name: "Clavo C/C de 2"
-)
-
 5.times do
   Category.create({
     name: Faker::Commerce.department
   })
 end
 
+
+ferreteria.products.create(
+  name: "Mochila de herramientas",
+  url_image: 'https://res.cloudinary.com/robcar/image/upload/v1613786249/samples/ecommerce/leather-bag-gray.jpg',
+  price: Faker::Commerce.price,
+  discount: Faker::Commerce.price(range: 0..10)
+)
+
+ferreteria.products.create(
+  name: "Clavo C/C de 2",
+  
+  price: Faker::Commerce.price,
+  discount: Faker::Commerce.price(range: 0..10)
+)
+
+
+
 category2 = Category.find(2);
 
 5.times do
   category2.products.create(
     name: Faker::Commerce.product_name,
-    url_image: '',
+    url_image: 'https://res.cloudinary.com/robcar/image/upload/v1613786197/samples/ecommerce/shoes.png',
     price: Faker::Commerce.price,
     discount: Faker::Commerce.price(range: 0..10)
   )
@@ -40,7 +49,7 @@ category4 = Category.find(4);
 5.times do
   category4.products.create(
     name: Faker::Commerce.product_name,
-    url_image: '',
+    url_image: 'https://res.cloudinary.com/robcar/image/upload/v1613786181/samples/ecommerce/analog-classic.jpg',
     price: Faker::Commerce.price,
     discount: Faker::Commerce.price(range: 0..10)
   )
