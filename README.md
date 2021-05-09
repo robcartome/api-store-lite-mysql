@@ -4,6 +4,9 @@ Respuesta de todos los productos y por categorias.
  - Se muestran todos los productos:   
 | GET | http://server_name/api/v1/products  
 
+- Buscar Productos atravez de un parametro query
+| GET | http://server_name/api/v1/products?query=nameProduct
+
  - Se muestran los productos por categoria:                                    
 | GET | http://server_name/api/v1/categories/{category_id}/products  
 
@@ -18,8 +21,20 @@ Respuesta de todos los productos y por categorias.
 
 Anexos:  
 * Se entrega un archivo para visualizar las urls en Insomnia
-* Se trabajo sin manejo de tokens
+* Se trabajo sin tokens
+
 # README
+
+Gemas Agregadas:
+  gem 'faker' : Para los seeders
+  gem 'rack-cors' : Para no tener problea con los cors
+  gem 'pg_search' : Para buscar en una BD PostgreSQL
+
+Pasos Para Correr en Local ( en la terminal ):
+  - bundle install
+  - rails db:create
+  - rails db:migrate
+  - rails db:seed
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

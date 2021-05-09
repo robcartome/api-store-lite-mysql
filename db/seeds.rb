@@ -34,7 +34,7 @@ ferreteria.products.create(
 
 category2 = Category.find(2)
 
-5.times do
+2.times do
   category2.products.create(
     name: Faker::Commerce.product_name,
     url_image: 'https://res.cloudinary.com/robcar/image/upload/v1613786197/samples/ecommerce/shoes.png',
@@ -45,10 +45,29 @@ end
 
 category4 = Category.find(4)
 
-5.times do
+3.times do
   category4.products.create(
     name: Faker::Commerce.product_name,
-    url_image: 'https://res.cloudinary.com/robcar/image/upload/v1613786181/samples/ecommerce/analog-classic.jpg',
+    url_image: 'https://res.cloudinary.com/robcar/image/upload/v1620602605/api-store/api-lata.png',
+    price: Faker::Commerce.price,
+    discount: Faker::Commerce.price(range: 0..10)
+  )
+end
+
+3.times do
+  category2.products.create(
+    name: Faker::Commerce.product_name,
+    url_image: 'https://res.cloudinary.com/robcar/image/upload/v1620603201/api-store/api-sound.jpg',
+    price: Faker::Commerce.price,
+    discount: Faker::Commerce.price(range: 0..10)
+  )
+end
+
+category5 = Category.find(5)
+2.times do
+  category5.products.create(
+    name: Faker::Commerce.product_name,
+    url_image: '',
     price: Faker::Commerce.price,
     discount: Faker::Commerce.price(range: 0..10)
   )
