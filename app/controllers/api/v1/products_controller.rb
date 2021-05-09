@@ -7,8 +7,18 @@ module Api
 
       # GET /products
       def index
-        products = Product.all
+        products = if params[:query].nil?
+                     Product.all
+                   else
+                     Product.search_by_term(params[:query])
+                   end
         render json: { status: 'OK', data: products }, status: :ok
+      end
+
+      def search
+        @products = Product.search_by_term(params[:query])
+
+        render json: @products
       end
 
       # GET /categories/category_id/products
