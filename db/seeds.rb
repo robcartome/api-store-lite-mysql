@@ -45,7 +45,7 @@ end
 
 category4 = Category.find(4)
 
-3.times do
+2.times do
   category4.products.create(
     name: Faker::Commerce.product_name,
     url_image: 'https://res.cloudinary.com/robcar/image/upload/v1620602605/api-store/api-pc.png',
@@ -54,7 +54,7 @@ category4 = Category.find(4)
   )
 end
 
-3.times do
+2.times do
   category2.products.create(
     name: Faker::Commerce.product_name,
     url_image: 'https://res.cloudinary.com/robcar/image/upload/v1620603201/api-store/api-sound.jpg',
