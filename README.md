@@ -45,4 +45,6 @@ Gemas Agregadas:
   gem 'pg_search' : Para buscar en una BD PostgreSQL                   
   
 
+## Autores ✒️
 
+* **Robert Tolentino** - *Trabajo Inicial* - [robcartome](https://github.com/robcartome)
