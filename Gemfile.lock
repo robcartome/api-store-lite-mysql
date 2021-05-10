@@ -84,6 +84,7 @@ GEM
     mini_portile2 (2.5.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    mysql2 (0.5.3)
     nio4r (2.5.7)
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
@@ -158,6 +159,7 @@ DEPENDENCIES
   byebug
   faker
   listen (~> 3.2)
+  mysql2
   pg (>= 0.18, < 2.0)
   pg_search
   puma (~> 4.1)

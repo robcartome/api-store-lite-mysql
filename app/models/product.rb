@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  self.table_name = 'product'
   belongs_to :category
   validates :name, presence: true
 
