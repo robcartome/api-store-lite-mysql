@@ -8,7 +8,6 @@ Rails.application.routes.draw do
         get 'products', to: 'products#show_by_category'
       end
       resources :products
-      get 'products', to: 'products#search'
     end
   end
 end

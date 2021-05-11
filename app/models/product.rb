@@ -2,7 +2,8 @@
 
 class Product < ApplicationRecord
   self.table_name = 'product'
-  belongs_to :category
+  # set_foreign_key = 'category'
+  belongs_to :category, foreign_key: :id
   validates :name, presence: true
 
   include PgSearch

@@ -10,21 +10,18 @@ module Api
         products = if params[:query].nil?
                      Product.all
                    else
-                     Product.search_by_term(params[:query])
+                     # Product.search_by_term(params[:query])
+                     Product.where('name LIKE ?', "%#{params[:query]}%")
                    end
         render json: { status: 'OK', data: products }, status: :ok
       end
 
-      def search
-        @products = Product.search_by_term(params[:query])
-
-        render json: @products
-      end
-
       # GET /categories/category_id/products
       def show_by_category
-        category = Category.find(params[:category_id])
-        products = category.products
+        # category = Category.find(params[:category_id])
+        # products = category.products
+        products = Product.where('category=?', params[:category_id])
+        p products
         render json: { status: 'OK', data: products }, status: :ok
       end
 
