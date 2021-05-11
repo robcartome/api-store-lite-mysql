@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # uso de mysql
-gem 'mysql2'
+# gem 'mysql2'
 # para la paginacion
 gem 'will_paginate'
 # Use Puma as the app server
@@ -47,5 +47,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  gem 'mysql2'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
