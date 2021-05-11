@@ -32,9 +32,14 @@ module Api
       def show_by_category
         # category = Category.find(params[:category_id])
         # products = category.products
-        products = Product.where('category=?', params[:category_id]).paginate(page: params[:page]).order('id DESC')
-        p products
-        render json: { status: 'OK', data: products }, status: :ok
+        num_page = params[:page].nil? ? 1 : params[:page].to_i
+        products = Product.where('category=?', params[:category_id]).paginate(page: num_page).order('id DESC')
+        next_num_page = num_page + 1
+        previous_num_page = num_page - 1
+        url_next = "#{@@base_url}/api/v1/categories/2/products?page=#{next_num_page}"
+        url_previous = "#{@@base_url}/api/v1/categories/2/products?page=#{previous_num_page}"
+        render json: { status: 'OK', next: products == [] ? '' : url_next, previous: previous_num_page.positive? ? url_previous : '', data: products },
+               status: :ok
       end
 
       # GET /products/{id}
