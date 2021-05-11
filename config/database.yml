@@ -98,6 +98,11 @@ test:
 #
 production:
   <<: *default
-  database: api_store_rob_production
-  username: api_store_rob
-  password: <%= ENV['API_STORE_ROB_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: bsale_test
+  pool: 10
+  host: mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com
+  username: bsale_test
+  password: bsale_test
