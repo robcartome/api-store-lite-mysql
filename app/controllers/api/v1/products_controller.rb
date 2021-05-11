@@ -6,9 +6,10 @@ module Api
       before_action :set_product, only: %i[show update destroy]
       # Modificar por la URL del dominio
       @@base_url = 'http://localhost:3000'
+
       # GET /products
       def index
-        num_page = params[:page].to_i || 1
+        num_page = params[:page].nil? ? 1 : params[:page].to_i
         products = if params[:query].nil?
                      # Product.all
                      Product.paginate(page: num_page).order('id DESC')
