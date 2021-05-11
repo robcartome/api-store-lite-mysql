@@ -96,10 +96,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-DATABASE_URL="mysql://bsale_test:bsale_test@mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com:3306/bsale_test"
+
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL']%>
   # adapter: mysql2
   # encoding: utf8
   # reconnect: false
