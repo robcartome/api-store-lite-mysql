@@ -5,7 +5,7 @@ module Api
     class ProductsController < ApplicationController
       before_action :set_product, only: %i[show update destroy]
       # Modificar por la URL del dominio
-      @@base_url = 'http://localhost:3000'
+      @@base_url = 'https://store-lite.herokuapp.com'
 
       # GET /products
       def index
