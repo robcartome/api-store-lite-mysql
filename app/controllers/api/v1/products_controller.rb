@@ -30,8 +30,6 @@ module Api
 
       # GET /categories/category_id/products
       def show_by_category
-        # category = Category.find(params[:category_id])
-        # products = category.products
         num_page = params[:page].nil? ? 1 : params[:page].to_i
         products = Product.where('category=?', params[:category_id]).paginate(page: num_page).order('id DESC')
         next_num_page = num_page + 1
