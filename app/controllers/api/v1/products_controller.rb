@@ -4,23 +4,34 @@ module Api
   module V1
     class ProductsController < ApplicationController
       before_action :set_product, only: %i[show update destroy]
-
+      # Modificar por la URL del dominio
+      @@base_url = 'http://localhost:3000'
       # GET /products
       def index
+        num_page = params[:page].to_i || 1
         products = if params[:query].nil?
-                     Product.all
+                     # Product.all
+                     Product.paginate(page: num_page).order('id DESC')
                    else
                      # Product.search_by_term(params[:query])
-                     Product.where('name LIKE ?', "%#{params[:query]}%")
+                     Product.where('name LIKE ?',
+                                   "%#{params[:query]}%").paginate(page: num_page).order('id DESC')
                    end
-        render json: { status: 'OK', data: products }, status: :ok
+
+        next_num_page = num_page + 1
+        previous_num_page = num_page - 1
+        url_next = "#{@@base_url}/api/v1/products?page=#{next_num_page}"
+        url_previous = "#{@@base_url}/api/v1/products?page=#{previous_num_page}"
+
+        render json: { status: 'OK', next: products == [] ? '' : url_next, previous: previous_num_page.positive? ? url_previous : '', data: products },
+               status: :ok
       end
 
       # GET /categories/category_id/products
       def show_by_category
         # category = Category.find(params[:category_id])
         # products = category.products
-        products = Product.where('category=?', params[:category_id])
+        products = Product.where('category=?', params[:category_id]).paginate(page: params[:page]).order('id DESC')
         p products
         render json: { status: 'OK', data: products }, status: :ok
       end

@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   belongs_to :category, foreign_key: :id
   validates :name, presence: true
 
+  # Para la paginacion
+  self.per_page = 12
+
   include PgSearch
   pg_search_scope :search_by_term, against: [:name],
                                    using: {

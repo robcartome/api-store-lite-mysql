@@ -11,6 +11,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 gem 'pg', '>= 0.18', '< 2.0'
 # uso de mysql
 gem 'mysql2'
+# para la paginacion
+gem 'will_paginate'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
