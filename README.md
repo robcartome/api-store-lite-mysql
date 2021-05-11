@@ -43,23 +43,23 @@ Pasos Para Correr en Local ( en la terminal ):
 
  
 ### Tecnologías usadas
-- Ruby on Rails                  
-Gemas Agregadas:
+- Ruby on Rails                               
+Gemas Agregadas:                 
   gem 'mysql2'  : Para conectarnos con la bd en Mysql    
   gem 'will_paginate'    : Para entregar datos con su respetiva paginación                         
   gem 'faker' : Para los seeders                         
   gem 'rack-cors' : Para no tener problema con los cors                                 
   
 ## Deployment 
-Deploy en Heroku con una BD remota externa mysql  
-
-Crear el remoto heroku en su dashboard
-Con una DATABASE_URL=mysql://dbusername:dbpassword@databasehostIP:databaseserverport/databasename
-> heroku login
-> git push heroku main
-Tambien se puede establecer el DATABASE_URL: 
-heroku config:add DATABASE_URL=mysql://dbusername:dbpassword@databasehostIP:databaseserverport/databasename
-
+Deploy en Heroku con una BD remota externa mysql                   
+Crear el remoto heroku en su dashboard              
+En el Config Vars detallar ->  DATABASE_URL=mysql://dbusername:dbpassword@databasehostIP:databaseserverport/databasename                                
+> heroku login               
+> git push heroku main             
+                 
+Tambien se puede establecer DATABASE_URL:                                              
+> heroku config:add DATABASE_URL=mysql://dbusername:dbpassword@databasehostIP:databaseserverport/databasename
+   
 ## Autores ✒️
 
 * **Robert Tolentino** - *Trabajo Inicial* - [robcartome](https://github.com/robcartome)
